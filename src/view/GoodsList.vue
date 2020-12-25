@@ -79,6 +79,7 @@
 <script>
   import axios from 'axios'
   import EditGood from "./EditGood";
+  import LineData from '../components/LineData'
     export default {
       name: "GoodsList",
       data(){
@@ -91,7 +92,8 @@
           }
       },
       components:{
-        EditGood
+        EditGood,
+        LineData
       },
       mounted() {
         this.getGoodsList()
@@ -127,8 +129,6 @@
 <style scoped>
   .el-header{
     height: 45px;
-  }
-  .sort-container{
   }
   .goods-header{
     height: 45px;

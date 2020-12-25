@@ -30,7 +30,7 @@
         <el-input v-model.number="good.total"></el-input>
       </el-form-item>
       <el-form-item label="进价" prop="goodPrice">
-        <el-input v-model.float="good.goodPrice"></el-input>
+        <el-input v-model="good.goodPrice"></el-input>
       </el-form-item>
       <el-form-item label="售价" prop="salePrice">
         <el-input v-model.number="good.salePrice"></el-input>
@@ -50,7 +50,7 @@
       <el-form-item label="商品图片" prop="goodName">
         <div class="uplaod-img">
           <input type="file" v-on:change="onchange" accept="image/*" multiple="multiple">
-          <div v-for="item in imgUrls" style="background-color: #d4d4d4;padding: 3px">
+          <div v-for="item in imgUrls" :key="item" style="background-color: #d4d4d4;padding: 3px">
             <img :src="item" alt="" style="width: 50px;height: auto">
             <i v-if="item" class="el-icon-close" style="position:relative;top:0px;right: 0" @click="deleteImg(item)"></i>
           </div>
@@ -91,7 +91,7 @@
                 { type: 'number', message: '请输入商品数量,必须是数字', trigger: 'blur' }
               ],
               goodPrice: [
-                { type: 'float', required: true, message: '请输入商品进价,必须是数字', trigger: 'blur' }
+                { type: 'float', required: true, message: '请输入商品进价,必须小数', trigger: 'blur' }
               ],
               salePrice: [
                 { type: 'number', required: true, message: '请输入商品售价,必须是数字', trigger: 'blur' }
@@ -174,7 +174,7 @@
     padding: 20px 100px;
     background-color: rgba(255, 255, 255, 0.99);
     position: fixed;
-    top: 80px;
+    top: 10px;
     left: 250px;
     border: 1px #d4d4d4 solid;
     border-radius: 5px;
